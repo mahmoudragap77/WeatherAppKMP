@@ -42,9 +42,11 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
+            implementation(libs.compass.geolocation.mobile)
 
-            implementation("com.google.android.gms:play-services-location:21.4.0")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.11.0")
+        }
+        iosMain.dependencies {
+            implementation(libs.compass.geolocation.mobile)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -57,7 +59,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             implementation(libs.compass.geolocation)
-            implementation(libs.compass.geolocation.mobile)
 
             implementation("io.ktor:ktor-client-core:3.6.0")
             implementation("io.ktor:ktor-client-cio:3.6.0")
