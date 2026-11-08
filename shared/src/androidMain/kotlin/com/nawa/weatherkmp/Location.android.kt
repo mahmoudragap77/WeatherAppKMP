@@ -5,28 +5,26 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.Priority
-import com.google.android.gms.tasks.CancellationTokenSource
-import kotlinx.coroutines.tasks.await
+import dev.jordond.compass.geolocation.Geolocator
+import dev.jordond.compass.geolocation.currentLocationOrNull
+import dev.jordond.compass.geolocation.mobile
 
-class AndroidLocatable(val context: Context) : Locatable {
+class AndroidLocatable: Locatable {
+
+    val geoLocator  = Geolocator.mobile()
     @SuppressLint("MissingPermission")
     override suspend fun getLocation(): Location {
-        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
 
-        val location = fusedLocationClient.getCurrentLocation(
-            Priority.PRIORITY_HIGH_ACCURACY,
-            CancellationTokenSource().token
-        )
-            .await() ?: throw Exception("Unable to get current location")
+        val locator = geoLocator.currentLocationOrNull()
+            ?: throw Exception("Unable to get current location")
 
-        return Location(location.latitude, location.longitude)
+        return Location(lat = locator.coordinates.latitude, lang = locator.coordinates.longitude)
+
     }
 }
 
 @Composable
 actual fun rememberLocatable(): Locatable {
     val context = LocalContext.current
-    return remember(context) { AndroidLocatable(context) }
+    return remember(context) { AndroidLocatable() }
 }

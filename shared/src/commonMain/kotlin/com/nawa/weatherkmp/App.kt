@@ -59,8 +59,13 @@ fun App() {
 
     val coroutineScope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit){
-        location = locatable.getLocation()
+    LaunchedEffect(locatable) {
+        try {
+            errorText = null
+            location = locatable.getLocation()
+        } catch (e: Exception) {
+            errorText = e.message ?: "Unable to get location"
+        }
     }
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(
