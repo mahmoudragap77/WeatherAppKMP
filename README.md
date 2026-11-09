@@ -3,12 +3,6 @@
 A cross-platform weather app built with **Kotlin Multiplatform** and **Compose Multiplatform**.
 One shared codebase for UI and business logic, running natively on **Android**, **iOS**, and **Desktop (JVM)**.
 
-![Kotlin](<img width="720" height="1600" alt="6eb7cb51-d5e7-41c9-9521-0a02b31f448e" src="https://github.com/user-attachments/assets/ee156b08-ee76-44a4-85ed-d672881036f7" />
-)
-![Compose](<img width="422" height="683" alt="Screenshot 2026-11-09 085103" src="https://github.com/user-attachments/assets/fa304ec6-54fe-4c65-bfad-80986bffceed" />)
-![Platforms](<img width="982" height="732" alt="Screenshot 2026-11-09 084914" src="https://github.com/user-attachments/assets/03da2412-d991-4a21-9df4-2fd503b43973" />)
-
-
 ---
 
 ## ✨ Features
@@ -90,3 +84,6 @@ The repository includes a GitHub Actions workflow (`.github/workflows/`) that:
    - `APPETIZE_PUBLIC_KEY`
 2. Go to **Actions → Build iOS for Appetize → Run workflow**.
 
+<img width="720" height="1600" alt="6eb7cb51-d5e7-41c9-9521-0a02b31f448e" src="https://github.com/user-attachments/assets/ee156b08-ee76-44a4-85ed-d672881036f7" />
+<img width="422" height="683" alt="Screenshot 2026-11-09 085103" src="https://github.com/user-attachments/assets/fa304ec6-54fe-4c65-bfad-80986bffceed" />
+<img width="982" height="732" alt="Screenshot 2026-11-09 084914" src="https://github.com/user-attachments/assets/03da2412-d991-4a21-9df4-2fd503b43973" />
